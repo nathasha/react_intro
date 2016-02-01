@@ -1,0 +1,7 @@
+# Node MOdules
+node_modules
+
+#Build Files
+dist
+
+.idea/
