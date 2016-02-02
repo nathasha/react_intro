@@ -25,17 +25,25 @@ module.exports={
         //for single loader , use 'loader : {}'
         //For multiple, use 'loaders : [{},{}]'
 
-        loader: {
+        loaders: [{
             test : /\.js$/, // Matches both .js and .jsx
-
-            include: PATHS.app,
-            exclude:[],
+            include: PATHS.app, //Only check files in this directory
+            exclude: path.join(__dirname, 'node_modules'), //Only check files in this directory
+            loader: 'babel',
             query: {
-                plugins: ['transform-runtime'],
                 presets: ['es2015','react']
-            },
-            loader : "babel"
-        }
+            }
+        }]
+    },
+
+    ////For development only
+    devServer : {
+        //Base directory to server the files
+        ///contentBase : '',
+
+        inline: true, //To refresh on page change
+
+        colors: true //Add colors to terminal when server is running
     }
 }
 ;
